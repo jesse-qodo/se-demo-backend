@@ -12,6 +12,14 @@ api/cmd/*/[!.]*
 api/**/*.exe
 api/**/*.test
 
+# Binary / compiled artifacts (repo-wide)
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.out
+
 # Node
 frontend/node_modules/
 frontend/dist/
