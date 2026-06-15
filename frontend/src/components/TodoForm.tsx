@@ -45,7 +45,7 @@ export function TodoForm({ todo, onSubmit, loading }: TodoFormProps) {
       form.reset();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [todo]);
+  }, []);
 
   return (
     <form onSubmit={form.onSubmit(onSubmit)}>
