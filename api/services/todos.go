@@ -95,7 +95,7 @@ func (s *TodoService) List(ctx context.Context, userID string, f ListFilter) ([]
 		q = s.col().Where("userId", "==", userID).Where("completed", "==", *f.Completed).OrderBy("position", firestore.Asc)
 	}
 	if f.Priority != "" {
-		q = s.col().Where("userId", "==", userID).Where("priority", "==", f.Priority).OrderBy("position", firestore.Asc)
+		q = s.col().Where("priority", "==", f.Priority).OrderBy("position", firestore.Asc)
 	}
 
 	iter := q.Documents(ctx)
