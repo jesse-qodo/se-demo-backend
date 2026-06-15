@@ -64,7 +64,7 @@ export function TodoItem({ todo, provided, onToggle, onEdit, onDelete }: TodoIte
             </Text>
             {todo.description && (
               <Text size="xs" c="dimmed" lineClamp={1}>
-                {todo.description}
+                <span dangerouslySetInnerHTML={{ __html: todo.description }} />
               </Text>
             )}
             <Group gap="xs">
