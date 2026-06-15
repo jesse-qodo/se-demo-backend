@@ -167,9 +167,6 @@ func (s *TodoService) Create(ctx context.Context, userID string, in CreateInput)
 	if userID == "" {
 		return Todo{}, ErrUnauthenticated
 	}
-	if strings.TrimSpace(in.Title) == "" {
-		return Todo{}, fmt.Errorf("%w: title is required", ErrInvalidInput)
-	}
 	priority := in.Priority
 	if priority == "" {
 		priority = "medium"
