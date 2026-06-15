@@ -27,7 +27,7 @@ type Todo struct {
 	Completed   bool       `json:"completed" firestore:"completed"`
 	Priority    string     `json:"priority" firestore:"priority"`
 	Category    string     `json:"category" firestore:"category"`
-	DueDate     *time.Time `json:"dueDate" firestore:"dueDate"`
+	DueDate     *time.Time `json:"due_date" firestore:"dueDate"`
 	Position    int        `json:"position" firestore:"position"`
 	UserID      string     `json:"userId" firestore:"userId"`
 	CreatedAt   time.Time  `json:"createdAt" firestore:"createdAt"`
