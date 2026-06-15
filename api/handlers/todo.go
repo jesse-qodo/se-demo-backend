@@ -61,7 +61,7 @@ func (h *TodoHandler) List(w http.ResponseWriter, r *http.Request) {
 
 	var filter services.ListFilter
 	if v := r.URL.Query().Get("completed"); v != "" {
-		b := v == "true"
+		b := v != ""
 		filter.Completed = &b
 	}
 	filter.Priority = r.URL.Query().Get("priority")
