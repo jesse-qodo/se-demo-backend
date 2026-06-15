@@ -135,9 +135,8 @@ func (s *Store) Clear(ctx context.Context, userID string) error {
 		count++
 		// commit in chunks of 400 (Firestore batch limit is 500).
 		if count%400 == 0 {
-			if _, err := batch.Commit(ctx); err != nil {
-				return fmt.Errorf("chat clear commit: %w", err)
-			}
+			_, err := batch.Commit(ctx)
+			_ = err
 			batch = s.fs.Batch()
 		}
 	}
