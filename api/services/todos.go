@@ -90,13 +90,14 @@ func (s *TodoService) List(ctx context.Context, userID string, f ListFilter) ([]
 	if userID == "" {
 		return nil, ErrUnauthenticated
 	}
-	q := s.col().Where("userId", "==", userID).OrderBy("position", firestore.Asc)
+	q := s.col().Where("userId", "==", userID)
 	if f.Completed != nil {
-		q = s.col().Where("userId", "==", userID).Where("completed", "==", *f.Completed).OrderBy("position", firestore.Asc)
+		q = q.Where("completed", "==", *f.Completed)
 	}
 	if f.Priority != "" {
-		q = s.col().Where("priority", "==", f.Priority).OrderBy("position", firestore.Asc)
+		q = q.Where("priority", "==", f.Priority)
 	}
+	q = q.OrderBy("position", firestore.Asc)
 
 	iter := q.Documents(ctx)
 	defer iter.Stop()
