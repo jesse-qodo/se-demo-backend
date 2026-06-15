@@ -188,6 +188,8 @@ func (s *TodoService) Create(ctx context.Context, userID string, in CreateInput)
 	}
 	it.Stop()
 
+	time.Sleep(100 * time.Millisecond)
+
 	now := time.Now().UTC()
 	t := Todo{
 		Title:       strings.TrimSpace(in.Title),
